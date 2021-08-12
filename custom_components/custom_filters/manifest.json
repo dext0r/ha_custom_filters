@@ -1,6 +1,6 @@
 {
   "domain": "custom_filters",
-  "name": "Custom filters for Jinja2",
+  "name": "Custom filters for Jinja",
   "version": "0.0.1",
   "documentation": "https://github.com/dext0r/ha_custom_filters",
   "dependencies": [],
