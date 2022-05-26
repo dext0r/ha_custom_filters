@@ -1,10 +1,10 @@
 {
   "domain": "custom_filters",
   "name": "Custom filters for Jinja",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "documentation": "https://github.com/dext0r/ha_custom_filters",
   "dependencies": [],
   "requirements": [],
-  "config_flow": false,
+  "config_flow": true,
   "codeowners": [ "@dext0r" ]
 }

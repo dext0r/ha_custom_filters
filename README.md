@@ -12,7 +12,7 @@ Add repository url. Category - Integration. Read more on https://hacs.xyz/docs/f
 
 
 ## Setup
-Add `custom_filters:` to your configuration.yaml
+Add `custom_filters:` to your configuration.yaml or add integration `Custom filters` on the Integrations page.
 
 
 ## Filters
