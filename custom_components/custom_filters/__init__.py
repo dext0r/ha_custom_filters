@@ -3,7 +3,8 @@ from typing import Any, cast
 
 from homeassistant.config_entries import SOURCE_IMPORT, ConfigEntry
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.template import TemplateEnvironment
+# noinspection PyProtectedMember
+from homeassistant.helpers.template import TemplateEnvironment, _NO_HASS_ENV
 from homeassistant.helpers.typing import ConfigType
 
 DOMAIN = 'custom_filters'
@@ -26,6 +27,8 @@ async def async_setup_entry(hass: HomeAssistant, _: ConfigEntry):
     for env in hass.data.values():
         if isinstance(env, TemplateEnvironment):
             env.filters['to_ascii_json'] = to_ascii_json
+
+    _NO_HASS_ENV.filters['to_ascii_json'] = to_ascii_json
 
     CustomTemplateEnvironment.base_init = cast(Any, TemplateEnvironment.__init__)
     TemplateEnvironment.__init__ = CustomTemplateEnvironment.init
