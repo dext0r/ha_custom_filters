@@ -15,6 +15,8 @@ def to_ascii_json(string):
 
 
 async def async_setup(hass: HomeAssistant, yaml_config: ConfigType):
+    _NO_HASS_ENV.filters['to_ascii_json'] = to_ascii_json
+
     if DOMAIN in yaml_config and not hass.config_entries.async_entries(DOMAIN):
         hass.async_create_task(hass.config_entries.flow.async_init(
             DOMAIN, context={'source': SOURCE_IMPORT}
@@ -27,8 +29,6 @@ async def async_setup_entry(hass: HomeAssistant, _: ConfigEntry):
     for env in hass.data.values():
         if isinstance(env, TemplateEnvironment):
             env.filters['to_ascii_json'] = to_ascii_json
-
-    _NO_HASS_ENV.filters['to_ascii_json'] = to_ascii_json
 
     CustomTemplateEnvironment.base_init = cast(Any, TemplateEnvironment.__init__)
     TemplateEnvironment.__init__ = CustomTemplateEnvironment.init
